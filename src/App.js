@@ -9,7 +9,7 @@ import JoinRoom from './components/JoinRoom/JoinRoom';
 import Game from './components/Game/Game';
 import Footer from './components/Footer/Footer';
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://server-tictactoe-multiplayer.onrender.com/");
 
 function App() {
   return (
