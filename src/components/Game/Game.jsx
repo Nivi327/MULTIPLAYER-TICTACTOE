@@ -115,7 +115,7 @@ const Game = ({ socket }) => {
     socket.on('draw', (payload) => {
       setWinner('Draw !');
       setGameEnd(true);
-      setUserTurn(false);
+      setUserTurn(true);
       setLoadingValue('');
     })
   })

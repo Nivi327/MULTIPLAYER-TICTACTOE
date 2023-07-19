@@ -193,6 +193,9 @@ p{
         left: 36.6%;
     }
 
+    .loading {
+        top: 12%;
+    }
 }
 
 @media screen and (max-width: 780px) {
@@ -237,6 +240,10 @@ p{
     .p7 {
         left: 9%;
     }
+
+    .loading {
+        top: 15%;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -246,6 +253,11 @@ p{
 
     .p5 {
         left: 40%;
+    }
+
+    .loading {
+        top: 18%;
+        left: 2.5%;
     }
 }
 
