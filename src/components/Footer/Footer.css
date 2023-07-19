@@ -2,6 +2,7 @@
     /* position: relative;
     margin-top: 15rem; */
     padding-bottom: 2rem;
+    margin-top: 2rem;
     /* bottom: 0; */
     width: 100%;
     display: flex;
@@ -14,7 +15,7 @@
 
 .footer .row {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .icons {
@@ -29,7 +30,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:780px) {
     .footer .row {
         font-size: 0.9rem;
     }

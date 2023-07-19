@@ -33,17 +33,18 @@ const Game = ({ socket }) => {
   const params = useParams();
 
   useEffect(() => {
-    window.onbeforeunload = function () {
+    window.onbeforeunload = function (event) {
+      event.preventDefault();
       window.setTimeout(function () {
         window.location = '/';
         try {
-          if (roomId !== undefined || roomId !== '') {
+          if (roomId !== undefined && roomId !== '') {
             socket.emit('removeRoom', { roomId });
           }
-          else if (roomId.length !== 0) {
+          else if (roomId !== undefined && roomId.length !== 0) {
             socket.emit('removeRoom', { roomId });
           }
-        } catch(err) {
+        } catch (err) {
           console.log(err);
         }
       }, 0);
@@ -60,11 +61,11 @@ const Game = ({ socket }) => {
       window.location.href = '/';
     }
     console.log('userEntered')
-    socket.emit('userEntered', { roomId: params.roomId, userId: user.userId })
+    socket.emit('userEntered', { roomId: params?.roomId, userId: user?.userId })
     socket.on('userEntered', (data) => {
       setUsers(data);
-      console.log(data.user1.userId === user.userId);
-      if (data.user1.userId === user.userId) {
+      console.log(data.user1?.userId === user?.userId);
+      if (data.user1?.userId === user?.userId) {
         setOpponentName(data.user2.userName);
       } else {
         setOpponentName(data.user1.userName);
@@ -73,25 +74,25 @@ const Game = ({ socket }) => {
       setLoading(false);
     })
 
-  }, [socket, user, params.roomId])
+  }, [socket, user, params?.roomId])
 
   useEffect(() => {
-    setRoomId(params.roomId);
-  }, [params.roomId]);
+    setRoomId(params?.roomId);
+  }, [params?.roomId]);
 
   useEffect(() => {
     socket.on('move', (payload) => {
       console.log(payload, user);
-      setMove({ move: payload.move, myMove: payload.userId === user.userId });
+      setMove({ move: payload.move, myMove: payload?.userId === user?.userId });
 
       setAllMoves([...allMoves, move]);
 
       moves[payload.move].move = 1;
-      moves[payload.move].curUserId = user.userId;
-      moves[payload.move].myMove = payload.userId === user.userId;
+      moves[payload.move].curUserId = user?.userId;
+      moves[payload.move].myMove = payload?.userId === user?.userId;
       console.log(moves);
 
-      if (payload.userId !== user.userId) {
+      if (payload?.userId !== user?.userId) {
         setUserTurn(false);
       }
     })
@@ -99,7 +100,7 @@ const Game = ({ socket }) => {
     socket.on('win', (payload) => {
       setWinPattern(payload.pattern);
       setGameEnd(true);
-      if (payload.userId === user.userId) {
+      if (payload?.userId === user?.userId) {
         setWinner('You won!');
         setMyScore(myScore + 1);
       } else {
@@ -107,7 +108,7 @@ const Game = ({ socket }) => {
         setOpponentScore(opponentScore + 1);
       }
 
-      setWinnerId(payload.userId);
+      setWinnerId(payload?.userId);
       setUserTurn(false);
     })
 
@@ -126,7 +127,7 @@ const Game = ({ socket }) => {
         m.myMove = false;
       })
       setWinner('');
-      setUserTurn(user.userId !== winnerId);
+      setUserTurn(user?.userId !== winnerId);
       setGameEnd(false);
     })
 
@@ -149,7 +150,7 @@ const Game = ({ socket }) => {
       return;
     }
 
-    socket.emit('move', { move: m, roomId, userId: user.userId });
+    socket.emit('move', { move: m, roomId, userId: user?.userId });
 
     moves[m].move = 1
     moves[m].myMove = true;
@@ -191,9 +192,7 @@ const Game = ({ socket }) => {
         <div onClick={moves[9].move === -1 && !winner ? () => handleOnClickMove(9) : null} className={moves[9].move === -1 ? `grid-item-hover grid-item` : `grid-item`}>{moves[9].move !== -1 ? (moves[9].myMove ? 'O' : 'X') : null}</div>
       </div>
 
-      {loading ? <div className="loading">{loadingValue}</div> : null}
-
-      {userTurn ? <div className="loading">{`Waiting for ${opponentName}'s response`}</div> : null}
+      {loading ? <div className="loading">{loadingValue}</div> : userTurn ? <div className="loading">{`Waiting for ${opponentName}'s response`}</div> : null}
 
       {
         gameEnd ? <div className="game-end">

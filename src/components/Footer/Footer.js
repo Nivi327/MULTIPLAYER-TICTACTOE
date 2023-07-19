@@ -9,7 +9,7 @@ import {MdOutlinePersonalVideo} from 'react-icons/md';
 const Footer = () => {
     return (
         <div className='footer'>
-            <div class="row">
+            <div className="row">
                 Copyright © 2023 || Designed by Nivas Bodapati
             </div>
             <div className='icons'>
