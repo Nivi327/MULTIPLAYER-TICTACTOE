@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --var-primary-color: #537FE7;
+  --var-line-color: #E9F8F9;
+  --var-opacity: #537fe743;
+}
+
+body {
+  font-family: 'Tektur';
+  color: white;
+}
+
+input {
+  font-family: 'Tektur';
+  outline: none;
+  border: none;
+  margin: 1rem;
+  border-bottom: 1px solid var(--var-primary-color);
+  font-size: 1rem;
+  color: white;
+  border-radius: 7px;
+  font-weight: 500;
+  background-color: transparent;
+  padding: 8px 10px;
+  transition: 0.1s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 0 1.5px 2px var(--var-primary-color);
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+button {
+  font-family: 'Tektur';
+  background-color: #537FE7;
+  outline: none;
+  border: 1px solid #181823;
+  border-radius: 7px;
+  font-size: 1rem;
+  margin: 1rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 8px 10px;
+  transition: 0.3s ease-in;
+}
+
+button:disabled {
+  background-color: gray;
+  color: whitesmoke;
+  font-size: 1rem;
+}
+
+button:hover {
+  font-size: 1.1rem;
+}
+
+button:disabled:hover {
+  font-size: 1rem;
+  cursor: default;
+}

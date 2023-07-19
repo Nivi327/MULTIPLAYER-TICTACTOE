@@ -1,0 +1,263 @@
+.game{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.game h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.game p {
+    display: flex;
+    justify-content: center;
+
+}
+
+.game .room-id {
+    color: var(--var-primary-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+p{
+    font-size: 1rem;
+}
+
+.room-you {
+    color: aqua;
+    font-weight: 500;
+}
+
+.room-opp {
+    color: red;
+    font-weight: 500;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    grid-template-rows: 120px 120px 120px;
+    width: fit-content;
+    margin: 3rem auto;
+}
+
+.grid-item {
+    padding: 30px;
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    color: var(--var-primary-color);
+    border: none;
+}
+
+.grid-item-hover:hover{
+    background-color: var(--var-opacity);
+    color: white;
+    /* border: none; */
+    cursor: pointer;
+}
+
+.bottom{
+    border-bottom: 2px solid var(--var-primary-color);
+}
+
+.right{
+    border-right: 2px solid var(--var-primary-color);
+}
+
+.line {
+	background-color: var(--var-line-color);
+    box-shadow: 0px 0px 10px var(--var-line-color);
+	border-radius: 50px;
+	position: absolute;
+	transform: translateY(-50%);
+	height: 0.2rem;
+	width: 0;
+	animation: grow 0.3s linear forwards;
+	z-index: 2;
+}
+
+@keyframes grow {
+	to {
+		width: 60%;
+	}
+}
+
+.p0{
+    top: 39%;
+	left: 19%;
+    transform: rotate(0deg);
+}
+
+.p1{
+    top: 56.7%;
+	left: 19%;
+    transform: rotate(0deg);
+}
+
+.p2{
+    top: 74.7%;
+	left: 19%;
+    transform: rotate(0deg);
+}
+
+
+.p3{
+    top: 56.5%;
+	left: 9.8%;
+    transform: rotate(90deg);
+}
+
+.p4{
+    top: 56.5%;
+	left: 20%;
+    transform: rotate(90deg);
+}
+
+.p5{
+    top: 56.5%;
+	left: 30.25%;
+    transform: rotate(90deg);
+}
+
+.p6{
+    top: 56.5%;
+	left: 21%;
+    transform: rotate(45deg);
+}
+
+.p7{
+    top: 56.5%;
+	left: 20%;
+    transform: rotate(135deg);
+}
+
+
+.game-end{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.loading{
+    height: 420px;
+    width: 100vw;
+    background: #61dafb00;
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-left:-14% ;
+    top: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.score{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1270px) and (min-width: 1000px) {
+    .p3 {
+        left: 7%;
+    }
+
+    .p5 {
+        left: 34%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .p3 {
+        left: 2%;
+    }
+
+    .p5 {
+        left: 36.6%;
+    }
+
+}
+
+@media screen and (max-width: 780px) {
+    .line {
+        animation: gameLessWidth 0.2s linear forwards;
+    }
+
+    @keyframes gameLessWidth {
+        to {
+            width: 80%;
+        }
+    }   
+
+    .p0 {
+        left: 4.5%;
+    }
+
+    .p1 {
+        left: 4.5%;
+    }
+
+    .p2 {
+        left: 4.5%;
+    }
+
+    .p3 {
+        left: -12%;
+    }
+
+    .p4 {
+        left: 10%;
+    }
+
+    .p5 {
+        left: 31%
+    }
+
+    .p6 {
+        left: 11%;
+    }
+
+    .p7 {
+        left: 9%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .p3 {
+        left: -20%;
+    }
+
+    .p5 {
+        left: 40%;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .p3 {
+        left: -24%;
+    }
+
+    .p4 {
+        left: 13%;
+    }
+
+    .p5 {
+        left: 50%;
+    }
+}

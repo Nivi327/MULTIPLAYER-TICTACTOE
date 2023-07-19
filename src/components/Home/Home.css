@@ -1,0 +1,35 @@
+.home {
+    width: 80%;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home h2 {
+    font-size: 1.7rem;
+}
+
+.home .text {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    align-items: center;
+}
+
+.home h2 span {
+    color: #537FE7;
+}
+
+@media screen and (max-width: 760px) {
+    .home {
+        width: 98%;
+    }
+
+    .home .text {
+        font-size: 1rem;
+    }
+}

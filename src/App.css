@@ -1,0 +1,16 @@
+.App {
+    min-height: 100vh;
+    min-width: 100%;
+    width: fit-content;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    /* padding-top: 2%; */
+    background: linear-gradient(180deg, rgba(22, 22, 22, 1) 50%, rgba(27, 27, 27, 1) 60%, rgba(36, 36, 36, 1) 70%, rgba(70, 70, 70, 1) 100%);
+}
+
+
+@media screen and (max-width: 780px) {
+    .App {
+        padding-top: 8%;
+    }
+}

@@ -1,0 +1,14 @@
+.join-room {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.url-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    justify-content: center;
+}
