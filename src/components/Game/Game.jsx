@@ -115,6 +115,7 @@ const Game = ({ socket }) => {
     socket.on('draw', (payload) => {
       setWinner('Draw !');
       setGameEnd(true);
+      setWinnerId('');
       setUserTurn(true);
       setLoadingValue('');
     })
@@ -127,7 +128,12 @@ const Game = ({ socket }) => {
         m.myMove = false;
       })
       setWinner('');
-      setUserTurn(user?.userId !== winnerId);
+      console.log(`Rematch ${user?.userId}`);
+      if(winnerId !== '') {
+        setUserTurn(user?.userId !== winnerId);
+      } else {
+        setUserTurn(false);
+      }
       setGameEnd(false);
     })
 
